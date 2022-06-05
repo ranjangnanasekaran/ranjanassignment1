@@ -7,6 +7,8 @@ RUN apt-get update -y && \
   apt-get install awscli -y && \
   rm -rf /tmp/* && \
   rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+  apt-get install inetutils-ping -y
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY ./index.html /usr/share/nginx/html/index.html
 CMD nginx -g "daemon off;"
